@@ -1,0 +1,185 @@
+<!--index.wxml-->
+<view class="container">
+  <!--轮播图-->
+  <swiper class="swiper-wrapper" autoplay="true" circular="true" indicator-dots="true" indicator-color="#fff" indicator-active-color="#FFA042">
+      <swiper-item class="swiper-item" wx:for="{{slides}}" wx:key="*this">
+        <image class="slider-image" src="{{item}}" mode="widthFix"></image>
+      </swiper-item>
+  </swiper>
+  <!--导航按钮-->
+  <view class="nav-btn-list">
+    <view class="btn-item">
+      <image src="../../images/coupon_home.png"></image>
+      <text>礼券</text>
+    </view>
+    <view class="btn-item">
+      <image src="../../images/column.png"></image>
+      <text>特惠</text>
+    </view>
+  </view>
+  <!--今日特惠-->
+  <view class="bargain-wrapper">
+    <view class="topic-header">
+      <text class="todayGoods">今日星品</text>
+      <image class="icon-right" src="../../images/iconset0421.png"></image>
+    </view>
+    <view class="bargain-item" wx:for="{{bargainList}}" wx:key="*this" bindtap="goDetail">
+      <image class="bargain-img" src="{{item.img}}"></image>
+      <view class="bargain-info">
+        <view class="info-header">
+          <text class="title">{{item.title}}</text>
+          <text class="desc">{{item.desc}}</text>
+        </view>
+        <view class="info-price">
+          <view class="base-price">
+            <text class="money">￥{{item.basePrice}}</text>
+            <text>现价</text>
+          </view>
+          <view class="original-price">
+            <text>￥{{item.originalPrice}}</text>
+            <text>原价</text>
+          </view>
+          <view class="limit">
+            <text>{{item.limit}}</text>
+            <text>仅剩库存</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <!--精选商品-->
+  <view class="special-topic-wrapper">
+    <view class="topic-header" bindtap="goMore" >
+      <text>精选商品</text>
+      <image class="icon-right" src="../../images/right_arrow_circle.png"></image>
+    </view>
+    <view class="scroll-wrapper">
+      <scroll-view scroll-x>
+        <view class="topic-item" bindtap="goDetail" wx:for="{{firstList}}" wx:key="*this">
+          <image class="topic-img" src="{{item.img}}"></image>
+          <view class="topic-item-info">
+            <text class="topic-item-title">{{item.title}}</text>
+            <text class="topic-item-price">￥{{item.price}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 生鲜食品 -->
+  <view class="special-topic-wrapper">
+    <view class="topic-header" bindtap="goMore">
+      <text>生鲜食品</text>
+      <image class="icon-right" src="../../images/right_arrow_circle.png"></image>
+    </view>
+    <view class="scroll-wrapper">
+      <scroll-view scroll-x>
+        <view class="topic-item" bindtap="goDetail" wx:for="{{secondList}}" wx:key="*this">
+          <image class="topic-img" src="{{item.img}}"></image>
+          <view class="topic-item-info">
+            <text class="topic-item-title">{{item.title}}</text>
+            <text class="topic-item-price">￥{{item.price}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 粮油速食 -->
+  <view class="special-topic-wrapper">
+    <view class="topic-header" bindtap="goMore">
+      <text>粮油速食</text>
+      <image class="icon-right" src="../../images/right_arrow_circle.png"></image>
+    </view>
+    <view class="scroll-wrapper">
+      <scroll-view scroll-x>
+        <view class="topic-item" bindtap="goDetail" wx:for="{{thirdList}}" wx:key="*this">
+          <image class="topic-img" src="{{item.img}}"></image>
+          <view class="topic-item-info">
+            <text class="topic-item-title">{{item.title}}</text>
+            <text class="topic-item-price">￥{{item.price}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+   <!-- 零食酒水 -->
+  <view class="special-topic-wrapper">
+    <view class="topic-header" bindtap="goMore">
+      <text>零食酒水</text>
+      <image class="icon-right" src="../../images/right_arrow_circle.png"></image>
+    </view>
+    <view class="scroll-wrapper">
+      <scroll-view scroll-x>
+        <view class="topic-item" bindtap="goDetail" wx:for="{{forthList}}" wx:key="*this">
+          <image class="topic-img" src="{{item.img}}"></image>
+          <view class="topic-item-info">
+            <text class="topic-item-title">{{item.title}}</text>
+            <text class="topic-item-price">￥{{item.price}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+   <!-- 床上用品 -->
+  <view class="special-topic-wrapper">
+    <view class="topic-header" bindtap="goMore">
+      <text>床上用品</text>
+      <image class="icon-right" src="../../images/right_arrow_circle.png"></image>
+    </view>
+    <view class="scroll-wrapper">
+      <scroll-view scroll-x>
+        <view class="topic-item" bindtap="goDetail" wx:for="{{fifthList}}" wx:key="*this">
+          <image class="topic-img" src="{{item.img}}"></image>
+          <view class="topic-item-info">
+            <text class="topic-item-title">{{item.title}}</text>
+            <text class="topic-item-price">￥{{item.price}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+   <!-- 数码电子 -->
+  <view class="special-topic-wrapper">
+    <view class="topic-header" bindtap="goMore">
+      <text>数码电子</text>
+      <image class="icon-right" src="../../images/right_arrow_circle.png"></image>
+    </view>
+    <view class="scroll-wrapper">
+      <scroll-view scroll-x>
+        <view class="topic-item" bindtap="goDetail" wx:for="{{sixthList}}" wx:key="*this">
+          <image class="topic-img" src="{{item.img}}"></image>
+          <view class="topic-item-info">
+            <text class="topic-item-title">{{item.title}}</text>
+            <text class="topic-item-price">￥{{item.price}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+   <!-- 家庭清洁 -->
+  <view class="special-topic-wrapper">
+    <view class="topic-header" bindtap="goMore">
+      <text>家庭清洁</text>
+      <image class="icon-right" src="../../images/right_arrow_circle.png"></image>
+    </view>
+    <view class="scroll-wrapper">
+      <scroll-view scroll-x>
+        <view class="topic-item" bindtap="goDetail" wx:for="{{seventhList}}" wx:key="*this">
+          <image class="topic-img" src="{{item.img}}"></image>
+          <view class="topic-item-info">
+            <text class="topic-item-title">{{item.title}}</text>
+            <text class="topic-item-price">￥{{item.price}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!--到底提示-->
+  <view class="bottom-tip">
+    <text>没有更多了哦~</text>
+  </view>
+  <!-- 返回顶部 -->
+  <view class="goTop">
+    <image class="backTop" src="../../images/fanhuidingbu.png" hidden='{{!floorstatus}}' bindtap="backTop"></image>
+  </view>
+</view>
